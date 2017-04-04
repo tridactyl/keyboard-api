@@ -1,0 +1,37 @@
+[
+  {
+    "namespace": "keyboard",
+    "permissions": ["experiments.keyboard"],
+    "functions": [
+      {
+        "name": "listen",
+        "type": "function",
+        "parameters": [
+          {
+            "name": "cb",
+            "type": "function",
+            "parameters": [
+              {
+                "name": "somestring",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "onKeydown",
+        "type": "function",
+        "description": "Fired on each keydown event in any window.",
+        "parameters": [
+          {
+            "type": "KeyboardEvent",
+            "name": "ke2"
+          }
+        ]
+      }
+    ]
+  }
+]
