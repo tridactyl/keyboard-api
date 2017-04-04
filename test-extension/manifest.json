@@ -1,0 +1,25 @@
+{
+
+  "manifest_version": 2,
+  "name": "Dummy",
+  "version": "1.0",
+
+  "background" : {
+    "scripts": ["main.js"]
+  },
+
+  "browser_action": {
+    "default_title": "Dummy",
+    "browser_style": true
+  },
+
+  "permissions": [
+      "experiments.keyboard"
+    ],
+
+    "applications": {
+      "gecko": {
+        "id": "dummy@cmcaine.co.uk"
+      }
+    }
+}
