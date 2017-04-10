@@ -27,8 +27,8 @@
         "description": "Fired on each keydown event in any window.",
         "parameters": [
           {
-            "type": "KeyboardEvent",
-            "name": "ke2"
+            "type": "string",
+            "name": "key"
           }
         ]
       }
