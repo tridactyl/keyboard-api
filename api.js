@@ -10,7 +10,7 @@
  *    Expose an InputEventManager as onKeydown
  *    Call listeners with each keyevent
  *            If the event target is in the chrome, the chrome window handler
- *            handles it, otherwise the framescripts do it (so that the
+ *            handles it, otherwise the frame scripts do it (so that the
  *            real event.target can be found).
  *
  *    Suppressing events:
@@ -59,7 +59,7 @@ var windowWatcher = Cc['@mozilla.org/embedcomp/window-watcher;1']
 // TODO: Get all windows.
 var mainWindow = windowWatcher.getWindowEnumerator().getNext()
 
-// Global Message Manager: mechanism for loading and communicating with framescripts
+// Global Message Manager: mechanism for loading and communicating with frame scripts
 var globalMM = Cc['@mozilla.org/globalmessagemanager;1']
   .getService(Ci.nsIMessageListenerManager)
 // }}}
@@ -109,13 +109,13 @@ function frameKeydownListener (message) {
 // All real input events travel through the chrome, but we should only keep
 // those whose final destination is a chrome object.
 //
-// No framescript is started for the chrome:// frame, so events targetting
+// No frame script is started for the chrome:// frame, so events targetting
 // that need to be captured through another method. I just add an
 // eventListener to each browser window object.
 //
-// As of FF 56, about:* pages get framescripts and are run in the chrome
+// As of FF 56, about:* pages get frame scripts and are run in the chrome
 // process. For consistency, and because I think they might move out of the
-// chrome process, I'll let the framescripts send the events for those
+// chrome process, I'll let the frame scripts send the events for those
 // pages.
 function chromeListener (keyevent) {
   let target = keyevent.target
@@ -232,7 +232,7 @@ class API extends ExtensionAPI {
 
 // {{{ API state
 
-// Save framescript URL so we can disable it.
+// Save frame script URL so we can disable it.
 // Date.now() is to get around a caching issue with frame scripts:
 // https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox/Message_Manager/Frame_script_loading_and_lifetime#Note_about_unload_during_uninstallationupgrade
 let framescriptURL = 'resource://extension-keyboard-api/frame.js?' + Date.now()

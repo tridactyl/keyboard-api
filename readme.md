@@ -12,12 +12,12 @@ For debugging, the API's `this` is made available as `this.keyboard` in the brow
 
 Hi, and thanks for reviewing! Here are some particular questions I would like answered, please also give comments on other topics :)
 
- - What is best practice for sharing code between api.js and the framescript?
- - Events are sent to at least the web console of a frame/window before or at the same time as they get processed by my frame script. How do I stop that? (If I call preventDefault() and stopPropagation() in my framescript, the event is still logged by the web console)
+ - What is best practice for sharing code between api.js and the frame script?
+ - Events are sent to at least the web console of a frame/window before or at the same time as they get processed by my frame script. How do I stop that? (If I call preventDefault() and stopPropagation() in my frame script, the event is still logged by the web console)
  - Are my conditions in chromeListener (:122) sensible?
  - Why does TAB not emit a keydown event?
  - I'm using a frame script to listen for the events, that will mean duplicating the state of the suppression state machines, unless I make a synchronous call to the chrome process and let that keep the state. Which is preferred?
- - Why does using sendSyncMessage in frame.js:log() cause more framescripts to appear when I broadcast the "suppress" message? 
+ - Why does using sendSyncMessage in frame.js:log() cause more frame scripts to appear when I broadcast the "suppress" message? 
 
 Pre-empting some questions:
 
