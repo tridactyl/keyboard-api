@@ -1,14 +1,24 @@
-// browser.browserAction.onClicked.addListener(() => {
-//   console.log("Browser Action.");
-//   browser.keyboard.onKeydown.addListener((ev) => { console.log("webext"); console.log(ev)
-//   })
-// });
+/**
+ * Example webextension that demos keyboard API use.
+ */
 
-function handleBrowserAction() {
-  console.log("BA")
+function toggleSuppression() {
+    suppress = !suppress
+    browser.keyboard.suppress({stopPropagation: suppress, preventDefault: suppress})
 }
 
-// This breaks if browser.keyboard is loaded...
-browser.browserAction.onClicked.addListener(handleBrowserAction);
+function handleBrowserAction(_) {
+    toggleSuppression()
+}
 
-console.log("Dummy inserted.");
+function keydownListener(ev) {
+    if (ev == "Insert") {
+        toggleSuppression()
+    }
+}
+
+let suppress = true
+toggleSuppression()
+browser.browserAction.onClicked.addListener(handleBrowserAction)
+browser.keyboard.onKeydown.addListener(keydownListener)
+console.log("Dummy inserted.")

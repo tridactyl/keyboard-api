@@ -1,3 +1,12 @@
+# TODO
+
+push something
+investigate how TAB evades preventDefault()
+look up how to get frame scripts to share state/libraries
+lydell's window method
+
+TESTING
+
 # Attributes of a keyevent
 
 isTrusted 

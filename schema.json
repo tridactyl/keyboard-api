@@ -2,20 +2,41 @@
   {
     "namespace": "keyboard",
     "permissions": ["experiments.keyboard"],
+    "types": [
+      {
+        "id": "suppress_message",
+        "type": "object",
+        "properties": {
+          "stopPropagation": {
+            "type": "boolean",
+            "optional": true
+          },
+          "preventDefault": {
+            "type": "boolean",
+            "optional": true
+          }
+        }
+      }
+    ],
     "functions": [
       {
-        "name": "listen",
+        "name": "suppress",
         "type": "function",
+        "async": true,
         "parameters": [
           {
-            "name": "cb",
-            "type": "function",
-            "parameters": [
-              {
-                "name": "somestring",
-                "type": "string"
+            "name": "suppress_message",
+            "type": "object",
+            "properties": {
+              "stopPropagation": {
+                "type": "boolean",
+                "optional": true
+              },
+              "preventDefault": {
+                "type": "boolean",
+                "optional": true
               }
-            ]
+            }
           }
         ]
       }
@@ -27,8 +48,8 @@
         "description": "Fired on each keydown event in any window.",
         "parameters": [
           {
-            "type": "string",
-            "name": "key"
+            "name": "key",
+            "type": "string"
           }
         ]
       }
