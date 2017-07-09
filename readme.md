@@ -8,6 +8,8 @@ All keydown events in your first browser window will now be logged to the browse
 
 For debugging, the API's `this` is made available as `this.keyboard` in the browser console of your first window.
 
+All the files in the repo is suitable for initial review.
+
 ## Questions for reviewers
 
 Hi, and thanks for reviewing! Here are some particular questions I would like answered, please also give comments on other topics :)
@@ -21,7 +23,9 @@ Hi, and thanks for reviewing! Here are some particular questions I would like an
 
 Pre-empting some questions:
 
+ - What to review? api.js, frame.js are the main ones, but all files in the repo is suitable for initial review.
  - Why do you use `var` in api.js? Debugging: I can't work out how to start a REPL in the context of the API, so I just attach the APIs scope to the main window and use the browser console.
+ - Why no tests? I don't understand how Mozilla's testing framework works yet and TDD doesn't fit very well when most of my issues are with understanding how the existing APIs and systems work.
 
 ## Motivation
 
@@ -49,7 +53,7 @@ New design is this:
  - `.onKeydown` is an InputEventManager. Listeners receive an object that contains the important properties of each keyevent (real keyevents can't be copied between processes).
  - `.suppress()` suppresses or unsuppresses all future events.
     - `.suppress({stopPropagation: true, preventDefault: false})`
- - Some more sophisticated method of expressing what should be suppressed, see [#suppression-rules].
+ - (Not implemented) Some more sophisticated method of expressing what should be suppressed, see [#suppression-rules].
     - Could use the same syntax to express which keyevents you want to be sent at all
 
 KeyboardEvents are seen, processed and optionally suppressed by this API before Firefox shortcuts, browser.onCommand shortcuts or event listeners defined on DOMWindow objects handle the event.
