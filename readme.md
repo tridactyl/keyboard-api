@@ -4,11 +4,11 @@
 
 Clone this repo, load it as a temporary addon from about:debugging in Firefox nightly, load the example addon in test-webextension subdirectory too.
 
-All keydown events in your first browser window will now be logged to the browser console and the test-webextension will toggle suppression of all keydown events if you press it's browseraction or press `Insert`.
+All keydown events in your first browser window will now be logged to the browser console and the test-webextension will toggle suppression of all keydown events if you press its browseraction or press `Insert`.
 
 For debugging, the API's `this` is made available as `this.keyboard` in the browser console of your first window.
 
-All the files in the repo is suitable for initial review.
+All the files in the repo are suitable for initial review.
 
 ## Questions for reviewers
 
