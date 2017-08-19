@@ -2,6 +2,8 @@
 
 ## Quickstart
 
+Set `extensions.legacy.enabled = true` in about:config in firefox nightly.
+
 Clone this repo, load it as a temporary addon from about:debugging in Firefox nightly, load the example addon in test-webextension subdirectory too.
 
 All keydown events in your first browser window (**regression**: only keydown events in about:\*, moz-extension://\* and on chrome bits work now) will now be logged to the browser console and the test-webextension will toggle suppression of all keydown events if you press its browseraction or press `Insert`.
