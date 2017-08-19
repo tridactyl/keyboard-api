@@ -4,7 +4,7 @@
 
 Clone this repo, load it as a temporary addon from about:debugging in Firefox nightly, load the example addon in test-webextension subdirectory too.
 
-All keydown events in your first browser window will now be logged to the browser console and the test-webextension will toggle suppression of all keydown events if you press its browseraction or press `Insert`.
+All keydown events in your first browser window (**regression**: only keydown events in about:\*, moz-extension://\* and on chrome bits work now) will now be logged to the browser console and the test-webextension will toggle suppression of all keydown events if you press its browseraction or press `Insert`.
 
 For debugging, the API's `this` is made available as `this.keyboard` in the browser console of your first window.
 
@@ -14,10 +14,10 @@ All the files in the repo are suitable for initial review.
 
 Hi, and thanks for reviewing! Here are some particular questions I would like answered, please also give comments on other topics :)
 
+ - My frame scripts (loaded with the global message manager) no longer seem to be loaded into "regular" pages: they're only loaded on about:\* and moz-extension://\* pages. This is a regression since I last tested the code (~July 10th).
  - What is best practice for sharing code between api.js and the frame script?
  - Events are sent to at least the web console of a frame/window before or at the same time as they get processed by my frame script. How do I stop that? (If I call preventDefault() and stopPropagation() in my frame script, the event is still logged by the web console)
  - Are my conditions in chromeListener (:122) sensible?
- - Why does TAB not emit a keydown event?
  - I'm using a frame script to listen for the events, that will mean duplicating the state of the suppression state machines, unless I make a synchronous call to the chrome process and let that keep the state. Which is preferred?
  - Why does using sendSyncMessage in frame.js:log() cause more frame scripts to appear when I broadcast the "suppress" message? 
 
