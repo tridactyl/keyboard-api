@@ -5,9 +5,12 @@ function log (obj) {
     obj = { m: obj }
   }
   obj.id = id
-  // Console prints <unavailable> under common conditions due to e10s.
-  // content.console.log("frame", obj)
+  obj.url = content.window.location.href
+  // Console.jsm prints <unavailable> under common conditions due to e10s.
+  content.console.log("frame", obj)
   // WTF: If I use sendSyncMessage, a bunch of extra frame scripts seem to get generated.
+  // sendSyncMessage('keyboard@cmcaine.co.uk:console', obj)
+  // Least bad option.
   sendAsyncMessage('keyboard@cmcaine.co.uk:console', obj)
 } // }}}
 
@@ -49,9 +52,9 @@ function keydownHandler (event) {
   )
 }
 
+// Receives messages from api.js
 function messageHandler (message) {
-  // sendAsyncMessage("keyboard@cmcaine.co.uk:console", {id: id, str: message.data.command});
-  log(message.data.command)
+  log({fromapijs: message.data.command})
   switch (message.data.command) {
     case 'unload': unload(); break
     case 'suppress': suppress(message); break
@@ -61,7 +64,6 @@ function messageHandler (message) {
 function load () {
   addMessageListener('keyboard@cmcaine.co.uk:to_frame_scripts', messageHandler)
   addEventListener('keydown', keydownHandler, false)
-  // sendAsyncMessage("keyboard@cmcaine.co.uk:console", {up: id});
   log('up')
 }
 
@@ -69,7 +71,6 @@ function unload () {
   removeEventListener('keydown', keydownHandler)
   removeMessageListener('keyboard@cmcaine.co.uk:to_frame_scripts', messageHandler)
   // This message is not guaranteed to be received because the console listener is likely to be pulled down too.
-  // sendAsyncMessage("keyboard@cmcaine.co.uk:console", {down: id});
   log('down')
 }
 
@@ -80,7 +81,6 @@ function suppress (message) {
   if ('stopPropagation' in message.data) {
     stopPropagation = message.data.stopPropagation
   }
-  // sendAsyncMessage("keyboard@cmcaine.co.uk:console", {data: message.data, preventDefault, stopPropagation});
   log({preventDefault, stopPropagation})
 }
 
@@ -88,6 +88,7 @@ function suppress (message) {
 
 let preventDefault = false
 let stopPropagation = false
+// For debugging.
 let id = Math.ceil(Math.random() * 1000)
 
 load()
