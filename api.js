@@ -235,7 +235,7 @@ class API extends ExtensionAPI {
 // Save frame script URL so we can disable it.
 // Date.now() is to get around a caching issue with frame scripts:
 // https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox/Message_Manager/Frame_script_loading_and_lifetime#Note_about_unload_during_uninstallationupgrade
-let framescriptURL = 'resource://extension-keyboard-api/frame.js?' + Date.now()
+let framescriptURL = 'resource://extension-keyboard-api/frame.js?' + Math.random()
 
 // Used by chromeListener
 let preventDefault = false
