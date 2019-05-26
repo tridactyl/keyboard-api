@@ -1,0 +1,11 @@
+{
+  "name": "keyboard-experiment",
+  "version": "1.0.0",
+  "scripts": {
+      "run": "web-ext run -s src/ -u 'about:debugging'"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "web-ext": "^3.0.0"
+  }
+}
