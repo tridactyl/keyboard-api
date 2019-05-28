@@ -2,7 +2,7 @@
   "name": "keyboard-experiment",
   "version": "1.0.0",
   "scripts": {
-      "run": "web-ext run -s src/ -u 'about:debugging'"
+      "run": "web-ext run -s src/ -u 'txti.es' -f $(which firefox-developer-edition)"
   },
   "license": "MIT",
   "dependencies": {

@@ -6,6 +6,8 @@ Rename the API - Chrome have gazumped us.
 
 ## Quickstart
 
+Install firefox-developer-edition and have it on your PATH.
+
 ```
 npm i
 npm run run
