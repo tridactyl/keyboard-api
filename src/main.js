@@ -4,7 +4,7 @@
 
 function toggleSuppression() {
     suppress = !suppress
-    browser.keyboard.suppress({stopPropagation: suppress, preventDefault: suppress})
+    browser.experiments.keyboard.suppress({stopPropagation: suppress, preventDefault: suppress})
 }
 
 function handleBrowserAction(_) {
@@ -20,5 +20,5 @@ function keydownListener(ev) {
 let suppress = true
 toggleSuppression()
 browser.browserAction.onClicked.addListener(handleBrowserAction)
-browser.keyboard.onKeydown.addListener(keydownListener)
+browser.experiments.keyboard.onKeydown.addListener(keydownListener)
 console.log("Dummy inserted.")

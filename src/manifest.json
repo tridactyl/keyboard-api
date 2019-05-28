@@ -12,17 +12,17 @@
   },
   "experiment_apis": {
     "keyboard": {
-      "schema": "schema.json",
+      "schema": "experiments/keyboard/schema.json",
       "parent": {
         "scopes": ["addon_parent"],
-        "paths": [["keyboard"]],
-        "script": "api.js"
+        "paths": [["experiments","keyboard"]],
+        "script": "experiments/crash/api.js"
       },
 
       "child": {
         "scopes": ["addon_child"],
-        "paths": [["keyboard"]],
-        "script": "frame.js"
+        "paths": [["experiments","keyboard"]],
+        "script": "experiments/keyboard/frame.js"
       }
     }
   },

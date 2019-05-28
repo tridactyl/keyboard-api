@@ -1,7 +1,6 @@
 [
   {
-    "namespace": "keyboard",
-    "permissions": ["experiments.keyboard"],
+    "namespace": "experiments.keyboard",
     "types": [
       {
         "id": "suppress_message",
