@@ -17,12 +17,6 @@
         "scopes": ["addon_parent"],
         "paths": [["experiments","keyboard"]],
         "script": "experiments/keyboard/api.js"
-      },
-
-      "child": {
-        "scopes": ["addon_child"],
-        "paths": [["experiments","keyboard"]],
-        "script": "experiments/keyboard/frame.js"
       }
     }
   },
