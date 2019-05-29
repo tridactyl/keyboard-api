@@ -16,7 +16,7 @@
       "parent": {
         "scopes": ["addon_parent"],
         "paths": [["experiments","keyboard"]],
-        "script": "experiments/crash/api.js"
+        "script": "experiments/keyboard/api.js"
       },
 
       "child": {
