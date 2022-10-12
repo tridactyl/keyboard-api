@@ -6,6 +6,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "web-ext": "^3.0.0"
+    "web-ext": "^3.2.1"
   }
 }
